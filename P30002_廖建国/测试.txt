@@ -1,2 +1,0 @@
-# P30002_廖建国学习计划
-print“hello,python)
