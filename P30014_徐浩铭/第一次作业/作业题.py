@@ -70,5 +70,34 @@ def calculate2(n=100):
             lst.append(i)
     print(lst)
 
+### 经测试，上面的代码有很大的问题，比如退出条件还没有完全做好，每次算出一个质数的时候
+### 都会使列表容量增加，导致列表的容量一直在扩增，这样效率会极低
+### 因此，优化了一下，最开始就要了一个大的列表，虽然这样会浪费了更多的空间，但是会减少很多的时间
+### 以后再研究怎样弄会使要的列表的长度不会太多，造成太多的内存浪费，优化代码如下
+# 第二种算法
+def calculate2(n=10000000):
+    # 提前开好空间，多开了不少
+    now = d.now()
+    lst = int(n/2)*[2]
+    count = 1
+    for i in range(3, n, 2):
+        flag = True
+        mid = i ** 0.5
+        for j in lst:
+            if j > mid:
+                # 是质数
+                break
+            if not i % j :
+                # 不是质数
+                flag = False
+                break
+        if flag:
+            lst[count] = i
+            count += 1
+    #print(lst)
+    print(count, (d.now()-now).total_seconds())
+calculate2()
+
+
 # wayne老师说还有更Nb的，应该是还有别的算法了，这个效率应该还凑活
 
