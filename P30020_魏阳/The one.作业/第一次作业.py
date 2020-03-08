@@ -86,3 +86,16 @@ for x in range(3,100000,2):
         #print(x)
         count +=1
 print(count)
+
+#4 大于10 能被5整除的
+count = 1
+print(2)
+for x in range(3,100000,2):
+    if x > 10 and x % 5 == 0:
+        continue
+    for i in range(3,int(x ** 0.5)+1,2):
+        if x % i == 0:#合数
+            break
+    else:#
+        #print(x)
+        count +=1
