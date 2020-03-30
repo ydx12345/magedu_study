@@ -1,0 +1,26 @@
+第1步：创建一个远程仓库，先直接用马哥的吧
+
+第2步：创建自己的本地仓库
+
+新建一个文件夹
+1)文件夹以你自己的班级号_名字命名
+2)进入文件夹
+3)点击右键，选择 git bash here
+4) 在 bash 里面执行 git init
+
+这样 git 仓库就创建好了
+
+
+第3步：添加远程仓库
+git remote add magedu git@gitee.com:magedu/python30.git
+
+
+第4步：查看远程仓库是否添加成功
+git remote -v
+magedu  git@gitee.com:magedu/python30.git (fetch)
+magedu  git@gitee.com:magedu/python30.git (push)
+
+
+第5步：在你的本地仓库中创建你的作业
+
+
