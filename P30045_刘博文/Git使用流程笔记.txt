@@ -1,0 +1,74 @@
+Git使用配置步骤：
+下载安装后，建立一个新的文件夹作为Git的工作目录（这个文件夹就是你的工作台，之后你的操作都会保存在里面）。
+然后该文件里右键选择Git bash here 会出现你的工作台，在里面配置基础信息：（说明：如果使⽤了 --global 选项，那么该命令只需要运⾏⼀次，因为之后⽆论你在该系统上做任何事情，Git 都会使⽤那些信息）
+
+1.进入bash界面后，配置基础信息：名字和邮箱，可以随便填写（你记不住也没关系，git 会提示你）
+git config --global user.name  "why"     （注意name和email后面都要空格，名字是英文  每一个字都要空格，例如bo wen liu）
+git config --global user.email  "823051124@qq.com"
+
+2.执行 git init（命令表示创建你的本地 git 仓库）
+
+3.在Git文件夹里创建一个笔记本，填写你要写的内容，可以是作业，笔记等等。
+
+4.明白工作原理：git 有三个区域：
+1.工作区，就是你当前的工作目录
+2.暂存区，暂存区就是暂时存放工作区中的文件
+3.版本库，版本库就是你提交的版本
+
+5. git status执行此命令，查看当前状态。（这个命令很重要，每执行一个命令后都要执行下这个，可以纠错，也会提示你当前的信息。）
+Untracked files，表示未追踪的文件。这个意思就是，我在 git 工作目录中创建了文件，但是我还没有添加到暂存区中
+
+6.git add 文件名名称       注意名称后的后缀也要写。或者 git add.  表示将所有文件放到暂存区。
+
+7.git commit -m “文件名”  这里的文件名内容，可以随便写，就写你要提交的文件名称就好。   注意-m后面也要空格。
+
+8.git log 可以查看你的提交历史，让你知道哪个版本做了啥
+
+9.登录码云，配置SSH连接：个人信息，设置，SSH公钥，打开bash：ssh-keygen  -t rsa -b 4096 -C "xxxx@qq.com"，一直回车，然后进入里面带有USER的目录，里面有一个公钥和一个私钥。
+打开公钥，复制里面的内容，不要更改。把复制内容粘贴到码云SASH公钥那里 ，在标题随起个名字，点击确定。在码云上创建仓库，填一个名字，选择公开即可。
+
+10.然后在bush里执行：git remote add origin
+git remote add origin git@gitee. com:bo wen liu1/L IUBOWEN.git   表示添加远程仓库
+
+11.执行命令：ssh -T git@gitee.com   测试密钥是否成功。
+
+12.git push -u origin master   表示将本地仓库的代码上传到远程仓库
+git push 你的仓库别名  master     git push -u 你的仓库别名  master  
+git push 你的远程仓库地址 master   远程仓库地址就是码云上 点python30这个仓库，然后选择克隆，选择SSH  复制链接 那个就是远程仓库地址。
+
+13.之后提交作业：先创建文本文件，git add 添加到暂存库，git commit -m提交到本地仓库，git push 上传到远程仓库。两种方式上传
+
+注意：命令  子命令  选项 每一个命令后都要空格。 
+git status 这个命令要经常用。  如果用到引号且引号里有中文，后面的引号，要记得切换到英文格式。
+git remote -v   查别名和对应的仓库地址   前面是仓库别名  后面是仓库地址。一般的话，远程仓库地址添加一次，后面就不用添加了
+git remote add origin git@gitee. com:bo wen liu1/L IUBOWEN.git
+git remote add 表示添加仓库
+github 表示仓库的别名，这里origin就是别名
+后面就是仓库的地址：git@gitee. com:bo wen liu1/L IUBOWEN.git
+
+以上是上传到自己仓库的步骤
+上传到马哥仓库（别人创建的仓库）：
+第1步：从远程拉取马哥的仓库（到码云上复制其仓库的远程仓库地址。注意SSH）
+在D盘里git bush中执行克隆 ，拉取复制的远程仓库地址到本地中。
+git clone git@gitee.com:magedu/python30.git
+拉取后在D盘会出现形成的本地仓库名字：D:python30
+
+第2步：进入这个目录 D:python30
+
+第3步：在这个目录里面创建你的名字目录
+
+第4步：在你的目录中写入作业
+
+第5步：写完之后，退出到 python30 目录，右键 git bash here
+注意：是在 python30 目录中打开 git bash here 。
+
+执行如下命令：
+git add .  放到暂存区
+git commit -m "xxxxx"  上传到本地仓库
+
+第6步：本地提交后，上传到远程仓库
+git fetch  或者直接使用 git pull  替换 git fetch，更加容易操作
+（这一步是为了同步本地和远程仓库，以防作业过程中被其他人提交）
+git push -u origin master  （然后提交到远程仓库，跟上述提交到自己的仓库是一样的）
+
+
